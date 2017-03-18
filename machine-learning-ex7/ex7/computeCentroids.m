@@ -26,10 +26,12 @@ centroids = zeros(K, n);
 % Note: You can use a for-loop over the centroids to compute this.
 %
 
-
-
-
-
+for i = 1:K
+	j = idx == i;			% find the indices for centroid
+	k = X .* j;			% examples for the centroid i
+	l = sum(j);			% find number of non-zeros
+	centroids(i,:) = sum(k) / l;	% compute the mean
+end
 
 
 
